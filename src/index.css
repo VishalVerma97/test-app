@@ -22,4 +22,41 @@ body {
   width: 100%;
   border-radius: 10px;
   padding: 1rem;
+  overflow: auto;
+}
+
+.filterCard {
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.unavailable {
+  padding-left: 20px;
+}
+
+.mission {
+  color: darkblue;
+}
+
+.base-font {
+  font-size: 1rem;
+}
+
+.bold-weight {
+  font-weight: 700;
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
+.year {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.3rem;
+  cursor: pointer;
+  background-color: palegreen;
 }

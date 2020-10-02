@@ -4,6 +4,7 @@ var apiHelper = function(config) {
 
     var methodType = config.method || 'get';
     var params = config.params || {}
+    var url = baseUrl;
 
     var config = {
         method: methodType,
@@ -24,7 +25,12 @@ var apiHelper = function(config) {
         return response.json();
     }
 
-    return fetch(baseUrl, config)
+    if(methodType == 'get' && !!params && Object.keys(params).length > 0){
+        var query = Object.keys(params).map(k => k + '=' + params[k]).join('&');
+        url += '&' + query;
+    }
+
+    return fetch(url, config)
     .then(status)
     .then(json)
 }

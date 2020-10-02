@@ -7,36 +7,36 @@ const Card = (props) => {
             <div>
                 <img src={props.satelliteInfo.links.mission_patch_small}/>
             </div>
-            <div>
+            <div className="mission base-font bold-weight">
                 {props.satelliteInfo.mission_name} # {props.satelliteInfo.flight_number}
             </div>
             <div>
-                <div>Mission Ids: </div>
+                <div className="base-font bold-weight">Mission Ids: </div>
                 {
-                    props.satelliteInfo.mission_id && props.satelliteInfo.mission_id.length > 0 ? missionId(props.satelliteInfo) : 'Unavailable'
+                    props.satelliteInfo.mission_id && props.satelliteInfo.mission_id.length > 0 ? missionId(props.satelliteInfo) : unAvailable()
                 }
             </div>
             <div>
-                <span>
+                <span className="base-font bold-weight">
                     Launch Year:
                 </span>
-                <span>
+                <span className="pl-2">
                     { !!props.satelliteInfo.launch_year ? props.satelliteInfo.launch_year: '-'}
                 </span>
             </div>
             <div>
-                <span>
+                <span className="base-font bold-weight">
                     Successful Launch:
                 </span>
-                <span>
+                <span className="pl-2">
                     { props.satelliteInfo.launch_success ? 'True': 'False' }
                 </span>
             </div>
             <div>
-                <span>
+                <span className="base-font bold-weight">
                     Successful Landing:
                 </span>
-                <span>
+                <span className="pl-2">
                     { !!props.satelliteInfo.launch_landing ? props.satelliteInfo.launch_landing: '-'}
                 </span>
             </div>
@@ -57,6 +57,14 @@ function missionId(info) {
                 })
             }
         </ul>
+    )
+}
+
+function unAvailable() {
+    return (
+        <div className="unavailable">
+            Unavailable
+        </div>
     )
 }
 

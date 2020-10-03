@@ -30,6 +30,7 @@ This project repo was created using create-react-app cli tool
 # Functionalites running
     - Initially page gets loaded using ssr
     - All the filters are working according to either year, launch success, land success
+    - Responsive Layout
     
     Bonus
     - Added clear filter functionality for clearing all the filters

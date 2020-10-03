@@ -10,7 +10,7 @@ This project repo was created using create-react-app cli tool
  - src
     - index.js - Main entry point or the main js file for the app
     - index.css - Contains all the css of the app
-    - components - Contains the generic reusable components i.e like cards
+    - components - Contains the generic reusable components i.e like cards (Filter card, satellite card)
     - screens - Contains the different pages of the app
     - utils - Contains the helper utilities & functions
 

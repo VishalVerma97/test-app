@@ -2,6 +2,10 @@ import React from 'react';
 
 class FilterCard extends React.Component {
 
+    selectedYear = null;
+    selectedLaunch = null;
+    selectedLand = null;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -60,18 +64,32 @@ class FilterCard extends React.Component {
 
     render() {
         return (
-            <div className="filterCard p-2">
-                <div className="base-font">
-                    Filters
+            <div className="filterCard p-3">
+                <div className="d-flex justify-content-between base-font">
+                    <div>
+                        Filters
+                    </div>
+                    <div style={{cursor: 'pointer'}} onClick={() =>  {
+                        this.selectedYear = null;
+                        this.selectedLand = null;
+                        this.selectedLaunch = null;
+                        this.props.clearFilter();
+                    }}>
+                        Clear Filters
+                    </div>
                 </div>
                 <div className="text-center underline mb-2">
                     Launch Year
                 </div>
-                <div className="row col-lg-12 text-center mx-0">
+                <div className="row d-flex justify-content-between col-lg-12 text-center mx-0 cardPadding">
                     {
                         this.state.yearOptions.map((item) => {
                             return (
-                                <div className="col-lg-5 year m-1" onClick={() => this.props.eventHandler({eventType: 'year', value: item})}>
+                                <div className={`col-5 year my-1 ${this.selectedYear == item ? 'selected' : ''}`} 
+                                    onClick={() => {
+                                        this.selectedYear = item;
+                                        this.props.eventHandler({eventType: 'year', value: item})
+                                    }}>
                                     {item}
                                 </div>
                             )
@@ -81,11 +99,15 @@ class FilterCard extends React.Component {
                 <div className="text-center underline mb-2">
                     Successful Launch
                 </div>
-                <div className="row col-lg-12 text-center mx-0">
+                <div className="row d-flex justify-content-between col-lg-12 text-center mx-0 cardPadding">
                     {
                         this.state.launchOptions.map((item) => {
                             return (
-                                <div className="col-lg-5 year m-1" onClick={() => this.props.eventHandler({eventType: 'launch', value: item})}>
+                                <div className={`col-5 year my-1 ${this.selectedLaunch == item ? 'selected' : ''}`} 
+                                    onClick={() => {
+                                        this.selectedLaunch = item;
+                                        this.props.eventHandler({eventType: 'launch', value: item})
+                                    }}>
                                     {item}
                                 </div>
                             )
@@ -95,11 +117,15 @@ class FilterCard extends React.Component {
                 <div className="text-center underline mb-2">
                     Successful Landing
                 </div>
-                <div className="row col-lg-12 text-center mx-0">
+                <div className="row d-flex justify-content-between col-lg-12 text-center mx-0 cardPadding">
                     {
                         this.state.landingOptions.map((item) => {
                             return (
-                                <div className="col-lg-5 year m-1" onClick={() => this.props.eventHandler({eventType: 'landing', value: item})}>
+                                <div className={`col-5 year my-1 ${this.selectedLand == item ? 'selected' : ''}`}
+                                onClick={() => { 
+                                    this.selectedLand = item;
+                                    this.props.eventHandler({eventType: 'landing', value: item})
+                                }}>
                                     {item}
                                 </div>
                             )
